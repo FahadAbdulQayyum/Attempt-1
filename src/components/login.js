@@ -23,6 +23,9 @@ export default function Login() {
             // console.log('data', data)
             console.log('res.data', res.data)
             console.log('res.data.token', res.data.token)
+            if (res.data.success) {
+                return router.push('/')
+            }
             localStorage.setItem('token', res.data.token)
             // res.data
         } catch (err) {
