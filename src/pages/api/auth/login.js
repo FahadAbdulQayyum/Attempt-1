@@ -27,6 +27,14 @@ const Login = async (req, res) => {
 
         console.log('usre', user)
 
+        const { isAdmin } = user
+        // const { __v } = user
+        // const { username } = user
+
+        console.log('isADimn', isAdmin)
+        // console.log('isADimn', __v)
+        // console.log('isADimn', username)
+
         if (!user) {
             return res.status(404).json({ success: false, msg: 'This user does not exist' })
         }
@@ -39,7 +47,8 @@ const Login = async (req, res) => {
             return res.status(404).json({ success: false, msg: 'Password is incorrect' })
         }
 
-        const token = jwt.sign({ email, password }, 'fahad', { expiresIn: '1h' })
+        // const token = jwt.sign({ email, password }, 'fahad', { expiresIn: '1h' })
+        const token = jwt.sign({ email, isAdmin }, 'fahad', { expiresIn: '1h' })
         // const token = jwt.sign({ email, password: user.password }, 'fahad', { expiresIn: '1h' })
 
         return res.json({ success: true, msg: "Hello Boy", token });

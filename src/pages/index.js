@@ -13,19 +13,12 @@ export default function Index() {
   const router = useRouter()
 
   useEffect(() => {
-    // axios.get('api/auth/tokenAuth', {
-    //   // axios.post('api/auth/tokenAuth', {
-    //   headers: {
-    //     // 'x-auth-token': JSON.stringify(localStorage.getItem('token'))
-    //     'x-auth-token': localStorage.getItem('token')
-    //   }
-    // })
     const authVerify = async () => {
       try {
-        const data = await axios.get('/api/auth/tokenAuth', {
-          // axios.post('api/auth/tokenAuth', {
+        console.log("localStorage.getItem('token')", localStorage.getItem('token'))
+        // const data = await axios.get('/api/auth/tokenAuth', {
+        const data = await axios.get('/api/auth/middleware', {
           headers: {
-            // 'x-auth-token': JSON.stringify(localStorage.getItem('token'))
             'x-auth-token': localStorage.getItem('token')
           }
         })

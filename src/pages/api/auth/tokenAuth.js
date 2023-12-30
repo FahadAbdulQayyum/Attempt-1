@@ -10,7 +10,9 @@ export default async function handler(req, res, next) {
         const token = req.headers['x-auth-token']
         console.log('^^^^^token', token)
         if (!token) {
-            return res.status(404).json({ success: false, msg: "Invalid authorization, Token Missing" })
+            console.log('tell it token undefined or false')
+            // return res.status(404).json({ success: false, msg: "Invalid authorization, Token Missing" })
+            return res.json({ success: false, msg: "Invalid authorization, Token Missing" })
             // throw new Error("Invalid authorization, Token Missing")
         }
         // const decode = jwt.verify(token, 'fahad')
@@ -35,15 +37,17 @@ export default async function handler(req, res, next) {
             }
             // req.method = 'POST'
             // req.body = {}
-            // req.email = decode.email
+            req.email = decode.email
+            req.isAdmin = decode.isAdmin
             // req.password = decode.password
 
             // req.body.email = decode.email
             // req.body.password = decode.password
             console.log('decodee', decode)
-            // next()
+            next
             // Login(req, res)
-            return res.status(200).json({ success: true, msg: "Authorization passed" })
+            // return res.status(200).json({ success: true, msg: "Authorization passed" })
+            // return res.status(200).json({ success: true, msg: "Authorization passed", isAdmin: decode.isAdmin })
         } catch (err) {
             console.log('caught', err)
             console.error(err)
@@ -53,7 +57,4 @@ export default async function handler(req, res, next) {
         console.log('caught', err)
         return res.status(404).json({ success: false, msg: "Invalid authorization, Token Missing" })
     }
-
-
-    return res.json({ msg: "Now go next" })
 }
