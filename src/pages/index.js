@@ -22,7 +22,7 @@ export default function Index() {
     // })
     const authVerify = async () => {
       try {
-        const data = await axios.get('api/auth/tokenAuth', {
+        const data = await axios.get('/api/auth/tokenAuth', {
           // axios.post('api/auth/tokenAuth', {
           headers: {
             // 'x-auth-token': JSON.stringify(localStorage.getItem('token'))
