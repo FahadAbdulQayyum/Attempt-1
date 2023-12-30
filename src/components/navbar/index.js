@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 
@@ -12,9 +13,18 @@ const Index = () => {
                     <div>Logo</div>
                     <div>
                         <ul className='flex space-x-5 cursor-pointer'>
-                            <li className={`hover:scale-105 transition-transform px-4 rounded ${router.pathname === '/' ? 'bg-slate-500 text-white' : 'bg-slate-200 text-black'}`}>Home</li>
+                            <Link href='/'>
+                                <li
+                                    // onClick={router.push('/')}
+                                    className={`hover:scale-105 transition-transform px-4 rounded ${router.pathname === '/' ? 'bg-slate-500 text-white' : 'bg-slate-200 text-black'}`}>Home</li>
+                            </Link>
                             {/* <li className='hover:scale-105 transition-transform bg-slate-200 px-4 text-black rounded'>Home</li> */}
-                            <li className='hover:scale-105 transition-transform bg-slate-200 px-4 text-black rounded'>Category</li>
+                            <Link href='/category'>
+                                <li
+                                    // onClick={() => router.push('/category')}
+                                    className={`hover:scale-105 transition-transform px-4 rounded ${router.pathname === '/category' ? 'bg-slate-500 text-white' : 'bg-slate-200 text-black'}`}>Category</li>
+                            </Link>
+                            {/* <li className='hover:scale-105 transition-transform bg-slate-200 px-4 text-black rounded'>Category</li> */}
                             <li className='hover:scale-105 transition-transform bg-slate-200 px-4 text-black rounded'>About</li>
                             <li className='hover:scale-105 transition-transform bg-slate-200 px-4 text-black rounded'>Contact</li>
                             <li className='hover:scale-105 transition-transform bg-slate-200 px-4 text-black rounded'>Logout</li>
