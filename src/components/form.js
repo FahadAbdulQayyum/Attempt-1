@@ -122,8 +122,8 @@ export default function Form({ signin, formSubmit }) {
                         <div className="flex items-center justify-between">
                             <div className="text-sm">
                                 <Link
-                                    // href={signin ? "/auth/signup" : "/auth/login"}
-                                    href={signin ? "/credentials/signup" : "/credentials/login"}
+                                    href={signin ? "/auth/signup" : "/auth/login"}
+                                    // href={signin ? "/credentials/signup" : "/credentials/login"}
                                     className="font-semibold text-indigo-600 hover:text-indigo-500"
                                 >
                                     {signin
