@@ -4,7 +4,7 @@ import React from 'react'
 const Index = () => {
     return (
         <div>
-            {/* Welcome to Home page */}
+            Welcome to Home page
 
         </div>
     )
