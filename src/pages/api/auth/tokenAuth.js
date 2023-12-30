@@ -51,7 +51,8 @@ export default async function handler(req, res, next) {
         } catch (err) {
             console.log('caught', err)
             console.error(err)
-            return res.status(404).json({ success: false, msg: "Invalid authorization, Token Missing" })
+            // return res.status(404).json({ success: false, msg: "Invalid authorization, Token Missing" })
+            return res.json({ success: false, msg: "Invalid authorization, Token Missing" })
         }
     } catch (err) {
         console.log('caught', err)

@@ -100,7 +100,8 @@ const Index = () => {
                     </div>
                     {/* <div>{email}</div> */}
                     <div>{console.log('isEmail', isEmail)}</div>
-                    <div>{isEmail ? 'Welcome, ' + isEmail : 'null'}</div>
+                    {/* <div>{isEmail ? 'Welcome, ' + isEmail : 'null'}</div> */}
+                    <div>{isEmail ? 'Welcome, ' + isEmail : ''}</div>
                 </div>
             </div>
         </div>

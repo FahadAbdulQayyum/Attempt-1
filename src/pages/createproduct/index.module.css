@@ -1,0 +1,36 @@
+/* .image-grid { */
+    .imageGrid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px; /* Adjust the gap between images */
+    }
+    
+    /* .image-container { */
+    .imageContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    
+    .imageContainer img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover; /* Maintain aspect ratio */
+    }
+    
+    .imgContainer{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .dltBtn:hover{
+        transform: scale(1.01);
+    }
+    .dltBtn{
+        background-color: red;
+        padding: 5px 0;
+        margin-top: 5px;
+        transition: .1s ease-in-out;
+    }
