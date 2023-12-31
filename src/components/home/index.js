@@ -25,13 +25,18 @@ const Index = () => {
         >
             {products?.map(v =>
                 <div
-                    className='bg-slate-100'
+                    // className='w-56 h-40'
+                    className='w-[20%] h-[80%]'
                 >
                     <img src={v.imgUrl}
-                        className='bg-slate-100 w-56 h-40'
+                        className='w-full h-full'
                     />
-                    <p>{v.productName}</p>
-                    <p>{'Rs' + v.productPrice + '/='}</p>
+                    <div
+                        className='bg-slate-300'
+                    >
+                        <p>{v.productName}</p>
+                        <p>{'Rs' + v.productPrice + '/='}</p>
+                    </div>
                 </div>
             )}
         </div>

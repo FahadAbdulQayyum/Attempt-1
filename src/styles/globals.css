@@ -25,3 +25,36 @@ body {
     )
     rgb(var(--background-start-rgb));
 } */
+
+.sliderr img{
+  height: 400px;
+  /* height: 500px; */
+  width: 100%;
+  /* width: 50%; */
+  border-radius: 10px;
+}
+.slider {
+  display: flex;
+}
+
+.slick-dots {
+  top: 360px; 
+  left: 0px;
+  color: white;
+}
+
+.slick-dots button:before,
+.slick-dots li.slick-active button:before {
+  color: white !important;
+  font-size: 10px;
+ }
+
+/* .slick-arrow .slick-prev { */
+.slick-arrow.slick-prev{
+  left: 10px;
+  z-index: 10;
+}
+.slick-arrow.slick-next{
+  right: 10px;
+  z-index: 10;
+}

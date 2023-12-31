@@ -6,6 +6,8 @@ import { useRouter } from 'next/router'
 
 import Home from '@/components/home'
 
+import Carousel from "../components/carousel"
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Index() {
@@ -36,10 +38,21 @@ export default function Index() {
   }, [])
 
   return (
-    <div
-      className='flex flex-col'
-    >
-      <Home />
-    </div>
+    <div>
+      <div
+        className='flex justify-center py-5'
+      >
+        <div
+          className='w-[70%]'
+        >
+          <Carousel />
+        </div>
+      </div>
+      <div
+        className='flex flex-col'
+      >
+        <Home />
+      </div>
+    </div >
   )
 }
