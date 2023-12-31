@@ -36,7 +36,9 @@ export default function Index() {
   }, [])
 
   return (
-    <div>
+    <div
+      className='flex flex-col'
+    >
       <Home />
     </div>
   )
