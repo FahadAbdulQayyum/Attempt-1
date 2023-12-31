@@ -8,6 +8,8 @@ import Home from '@/components/home'
 
 import Carousel from "../components/carousel"
 
+import Categorized from "../components/categorized"
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Index() {
@@ -52,6 +54,11 @@ export default function Index() {
         className='flex flex-col'
       >
         <Home />
+      </div>
+      <div
+        className='flex flex-col'
+      >
+        <Categorized />
       </div>
     </div >
   )
