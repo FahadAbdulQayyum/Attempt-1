@@ -34,7 +34,7 @@ export default function SimpleSlider() {
                 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
             </Head>
             <Slider {...settings}>
-                {products.map(p => <div className='sliderr'><img src={p.imgUrl} /></div>)}
+                {products.map(p => <div className='sliderr w-56 object-none'><img src={p.imgUrl} className='h-20 w-full object-cover' /></div>)}
             </Slider>
         </div>
     );

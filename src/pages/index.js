@@ -59,15 +59,21 @@ export default function Index() {
         className='flex flex-col'
       >
         <>
-          <h1>Vegetable:</h1>
+          <h1
+            className='mx-5 my-2 bg-stone-700 text-white'
+          >Vegetable:</h1>
           <Categorized category={'vegetable'} />
         </>
         <>
-          <h1>Fruit:</h1>
+          <h1
+            className='mx-5 my-2 bg-stone-700 text-white'
+          >Fruit:</h1>
           <Categorized category={'fruit'} />
         </>
         <></>
-        <h1>Sweet:</h1>
+        <h1
+          className='mx-5 my-2 bg-stone-700 text-white'
+        >Sweet:</h1>
         <Categorized category={'sweet'} />
       </div>
     </div >
