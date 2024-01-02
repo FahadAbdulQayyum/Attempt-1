@@ -110,12 +110,12 @@ const Index = () => {
                 </div>
             </div>
 
-            <div
+            {products.length && <div
                 className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
             >
                 {products.length}
-            </div>
-        </div>
+            </div>}
+        </div >
     );
 };
 
