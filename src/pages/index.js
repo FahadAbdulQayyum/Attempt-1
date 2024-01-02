@@ -76,6 +76,11 @@ export default function Index() {
         >Sweet:</h1>
         <Categorized category={'sweet'} />
       </div>
+      {/* <div
+        className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
+      >
+        fahad
+      </div> */}
     </div >
   )
 }

@@ -1,10 +1,15 @@
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
+import Cntxt from '../global/globalContext';
 
 const Index = () => {
     const router = useRouter();
+
+    const { products } = useContext(Cntxt)
+
+
     const [authenticated, setAuthenticated] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
     const [isEmail, setIsEmail] = useState('');
@@ -103,6 +108,12 @@ const Index = () => {
                     {/* <div>{isEmail ? 'Welcome, ' + isEmail : 'null'}</div> */}
                     <div>{isEmail ? 'Welcome, ' + isEmail : ''}</div>
                 </div>
+            </div>
+
+            <div
+                className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
+            >
+                {products.length}
             </div>
         </div>
     );
