@@ -1,9 +1,12 @@
 import axios from 'axios'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
 const Index = ({ category, }) => {
 
     const [products, setProducts] = useState([])
+
+    const router = useRouter()
 
     useEffect(() => {
         const fetchImg = async () => {
@@ -18,13 +21,21 @@ const Index = ({ category, }) => {
         fetchImg()
     }, [])
 
+    const handleClick = id => {
+        router.push({
+            pathname: '/productdetail',
+            query: { pd: id },
+        })
+    }
+
     return (
         <div>
             <div
                 className='flex flex-row'
             >
                 {products.map((v, index) => (
-                    <div key={index} className='w-80 mx-5 object-none'>
+                    // <div key={index} className='w-80 mx-5 object-none' onClick={() => handleClick(v._id)}>
+                    <div key={index} className='w-80 mx-5 object-none' onClick={() => handleClick(v)}>
                         <img src={v.imgUrl} className='h-64 w-full object-cover' alt={`Product ${index + 1}`} />
                     </div>
                 ))}

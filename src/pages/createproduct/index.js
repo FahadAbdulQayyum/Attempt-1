@@ -44,9 +44,9 @@ export default function Upload({ resources }) {
 
     console.log('resourcess', resources);
 
-    resources = resources.filter(v => v.folder === 'fahad_profile')
+    resources = resources?.filter(v => v.folder === 'fahad_profile')
 
-    const imgArr = resources.map(r => {
+    const imgArr = resources?.map(r => {
         return (
             <div
                 className={Style.imgContainer}
@@ -228,7 +228,6 @@ export async function getStaticProps() {
             Authorization: `Basic ${Buffer.from(process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY + ':' + process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET).toString('base64')}`
         }
     }).then(r => r.json());
-    // console.log('resultss', results)
 
     return {
         props: {
@@ -236,52 +235,3 @@ export async function getStaticProps() {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-// import axios from 'axios';
-// import React, { useEffect } from 'react'
-// import { useRouter } from 'next/router'
-
-// const Index = () => {
-
-//     const router = useRouter()
-
-//     useEffect(() => {
-//         const verify = async () => {
-//             const tokenExist = localStorage.getItem('token');
-//             const res = await axios.get('/api/auth/middleware', {
-//                 headers: {
-//                     'x-auth-token': tokenExist
-//                 }
-//             })
-//             const admin = res.data.isAdmin
-//             // email = res.data.email
-//             // console.log('adminn', admin, email)
-//             console.log('adminn', admin)
-//             if (!admin) {
-//                 router.replace('/')
-//                 // router.replace('/auth/login')
-//             }
-//             // setIsAdmin(!!admin)
-//             // setIsEmail(email)
-//         }
-//         verify()
-//     }, []);
-
-//     return (
-//         <div>
-//             CreateProduct
-//         </div>
-//     )
-// }
-
-// export default Index
