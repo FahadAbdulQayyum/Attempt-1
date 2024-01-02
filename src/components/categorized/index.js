@@ -21,10 +21,11 @@ const Index = ({ category, }) => {
         fetchImg()
     }, [])
 
-    const handleClick = id => {
+    const handleClick = pd => {
         router.push({
             pathname: '/productdetail',
-            query: { pd: id },
+            // query: { pd: id },
+            query: { product: JSON.stringify(pd) },
         })
     }
 

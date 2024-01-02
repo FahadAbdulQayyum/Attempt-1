@@ -5,11 +5,14 @@ import React from 'react'
 const ProductDetail = () => {
     const router = useRouter();
     // const { pd } = router.query;
-    const pd = router.query;
+    const { product } = router.query;
+    const parsedProduct = JSON.parse(product)
+    // const pd = router.query;
     return (
         <div>
             {/* {productdetail.product} */}
-            {console.log('productdetail', pd)}
+            {/* {console.log('productdetail', pd)} */}
+            {console.log('productdetail', parsedProduct)}
         </div>
     )
 }
