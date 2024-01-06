@@ -28,7 +28,21 @@ const globalReducer = (state, action) => {
                 // products: !state.products.length > 0 ? [...state.products, action.payload] : [...qnt],
 
                 // products: !(state.products.length > 0) ? [...state.products, action.payload] : qnt,
-                products: !(state.products.length > 0) ? [...state.products, action.payload] : [...qnt],
+
+                // products: !(state.products.length > 0) ? [...state.products, action.payload] : [...qnt],
+                products: !(state.products.length > 0) ? [...state.products, action.payload] : qnt,
+
+                // products: !(state.products.length > 0) ? [...state.products, action.payload] : [...state.products.map(v => {
+                //     if (v._id === action.payload._id) {
+                //         console.log('---_id')
+                //         return {
+                //             ...v, quantity: v.quantity + 1
+                //         }
+                //     }
+                //     console.log('---v')
+                //     return { ...v }
+                //     // return v
+                // })],
 
                 // products: [...state.products, qnt],
                 // products: [...state.products, ...qnt],
