@@ -5,8 +5,21 @@ const Checkout = () => {
 
     const { products } = useContext(Cntxt);
 
+    // let quantityProducts = products.map(v => v.productName === v.productName)
+    let quantityProducts = products.map(v => v.imgUrl)
 
-    
+    let quantifyProducts = products.forEach((v, i) => {
+        for (let a = 0; a <= quantityProducts.length; a++) {
+            if (v.imgUrl === quantityProducts[a]) {
+                // console.log('v.imgUrl|||', v.imgUrl, quantityProducts[a])
+                return console.log('v.imgUrl|||', v.imgUrl, quantityProducts[a])
+            }
+            return
+        }
+    })
+    // let quantifyProducts = products.forEach((v, i) => console.log('v.imgUrl === quantityProducts[i]', v.imgUrl === quantityProducts[i]))
+    console.log('quantifyProducts', quantifyProducts)
+
     return (
         <div>
             {products.map(v => <>{v.productName}</>)}

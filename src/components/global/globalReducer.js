@@ -7,7 +7,7 @@ const globalReducer = (state, action) => {
             }
         }
         case 'AddProduct':
-            console.log('add Product reducer called')
+            console.log('add Product reducer called', action.payload)
             return {
                 ...state,
                 products: [...state.products, action.payload],
