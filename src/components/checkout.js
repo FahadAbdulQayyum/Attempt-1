@@ -8,22 +8,32 @@ const Checkout = () => {
     // let quantityProducts = products.map(v => v.productName === v.productName)
     let quantityProducts = products.map(v => v.imgUrl)
 
-    let quantifyProducts = products.forEach((v, i) => {
+    let quantifyProducts = products.map((v, i) => {
+        // let quantifyProducts = products.forEach((v, i) => {
         for (let a = 0; a <= quantityProducts.length; a++) {
             if (v.imgUrl === quantityProducts[a]) {
                 // console.log('v.imgUrl|||', v.imgUrl, quantityProducts[a])
-                return { ...v, quantity: v.quantity ? v.quantity += 1 : 1 }
+                return { ...v, quantity: v.quantity++ }
                 // return console.log('v.imgUrl|||', v.imgUrl, quantityProducts[a])
             }
-            return { ...v, quantity: 1 }
+            return { ...v }
         }
     })
     // let quantifyProducts = products.forEach((v, i) => console.log('v.imgUrl === quantityProducts[i]', v.imgUrl === quantityProducts[i]))
-    console.log('quantifyProducts', quantifyProducts)
+
+    const unique = quantifyProducts.filter(
+        (obj, index) =>
+            quantifyProducts.findIndex((item) => item._id === obj._id) === index
+    );
+
+    // quantifyProducts = quantifyProducts.filter(v => v._id !== v._id)
+
+    // console.log('quantifyProducts', quantifyProducts)
+    console.log('unique', unique)
 
     return (
         <div>
-            {products.map(v => <>{v.productName}</>)}
+            {unique.map(v => <>{v.productName}</>)}
         </div>
     )
 }
