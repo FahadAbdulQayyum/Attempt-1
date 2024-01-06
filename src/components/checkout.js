@@ -12,9 +12,10 @@ const Checkout = () => {
         for (let a = 0; a <= quantityProducts.length; a++) {
             if (v.imgUrl === quantityProducts[a]) {
                 // console.log('v.imgUrl|||', v.imgUrl, quantityProducts[a])
-                return console.log('v.imgUrl|||', v.imgUrl, quantityProducts[a])
+                return { ...v, quantity: v.quantity ? v.quantity += 1 : 1 }
+                // return console.log('v.imgUrl|||', v.imgUrl, quantityProducts[a])
             }
-            return
+            return { ...v, quantity: 1 }
         }
     })
     // let quantifyProducts = products.forEach((v, i) => console.log('v.imgUrl === quantityProducts[i]', v.imgUrl === quantityProducts[i]))

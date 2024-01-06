@@ -8,9 +8,34 @@ const globalReducer = (state, action) => {
         }
         case 'AddProduct':
             console.log('add Product reducer called', action.payload)
+            const qnt = state.products.map(v => {
+                // state.products = state.products.forEach(v => {
+                // state.products = state.products.map(v => {
+                if (v._id === action.payload._id) {
+                    console.log('---_id')
+                    return {
+                        ...v, quantity: v.quantity + 1
+                    }
+                }
+                console.log('---v')
+                return { ...v }
+                // return v
+            })
+            console.log('qnt', qnt)
+            // console.log('state.products', state.products)
             return {
                 ...state,
-                products: [...state.products, action.payload],
+                // products: !state.products.length > 0 ? [...state.products, action.payload] : [...qnt],
+
+                // products: !(state.products.length > 0) ? [...state.products, action.payload] : qnt,
+                products: !(state.products.length > 0) ? [...state.products, action.payload] : [...qnt],
+
+                // products: [...state.products, qnt],
+                // products: [...state.products, ...qnt],
+                // products: [...state.products],
+                // products: [qnt],
+                // products: qnt,
+                // products: [...qnt],
                 // ls: localStorage.setItem('pd', JSON.stringify([...state.products, action.payload]))
                 ls: sessionStorage.setItem('pd', JSON.stringify([...state.products, action.payload]))
             }
