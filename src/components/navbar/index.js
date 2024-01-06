@@ -113,7 +113,8 @@ const Index = () => {
 
             {products.length > 0 && <>
                 <div
-                    className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
+                    // className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
+                    className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white pt-3 rounded-xl'
                 >
                     <>
                         <Accordion>
@@ -122,9 +123,12 @@ const Index = () => {
                             </AccordionItem>
 
                         </Accordion>
-                        {products.length}
+                        <p className='px-3 py-2'>
+                            {products.length}
+                            {console.log('|||products|||', products)}
+                        </p>
                     </>
-                    <div className='bg-blue-600 px-5 py-2 w-fit'>Go to Checkout</div>
+                    <button className='bg-blue-600 px-5 py-2 rounded-b-xl'><Link href={'/checkout'}>Go to Checkout</Link></button>
                 </div>
             </>
             }
