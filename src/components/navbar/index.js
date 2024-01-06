@@ -111,17 +111,23 @@ const Index = () => {
                 </div>
             </div>
 
-            {products.length > 0 && <div
-                className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
-            >
-                <Accordion>
-                    <AccordionItem key="1" aria-label="Accordion 1" subtitle="" title="">
-                        {products.map(v => <p>{v.productName}</p>)}
-                    </AccordionItem>
+            {products.length > 0 && <>
+                <div
+                    className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
+                >
+                    <>
+                        <Accordion>
+                            <AccordionItem key="1" aria-label="Accordion 1" subtitle="" title="">
+                                {products.map(v => <><p>{v.productName}<>{' - ' + v.productPrice}</></p></>)}
+                            </AccordionItem>
 
-                </Accordion>
-                {products.length}
-            </div >}
+                        </Accordion>
+                        {products.length}
+                    </>
+                    <div className='bg-blue-600 px-5 py-2 w-fit'>Go to Checkout</div>
+                </div>
+            </>
+            }
         </div >
     );
 };
