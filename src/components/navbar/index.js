@@ -114,18 +114,14 @@ const Index = () => {
             {products.length > 0 && <div
                 className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
             >
-                {/* <p>{products.map(v => <p>{v.productName}</p>)}</p> */}
-                {/* {v.productName} */}
-                <p>{products.map(v => <p>
-                    <Accordion>
-                        <AccordionItem key="1" aria-label="Accordion 1" subtitle="Press to expand" title={v.productName}>
-                            {/* {defaultContent} */}
-                            {/* <p>Salam</p> */}
-                        </AccordionItem>
-                    </Accordion>
-                </p>)}</p>
+                <Accordion>
+                    <AccordionItem key="1" aria-label="Accordion 1" subtitle="" title="">
+                        {products.map(v => <p>{v.productName}</p>)}
+                    </AccordionItem>
+
+                </Accordion>
                 {products.length}
-            </div>}
+            </div >}
         </div >
     );
 };
