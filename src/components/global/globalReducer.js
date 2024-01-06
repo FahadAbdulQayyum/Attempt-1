@@ -11,14 +11,16 @@ const globalReducer = (state, action) => {
             return {
                 ...state,
                 products: [...state.products, action.payload],
-                ls: localStorage.setItem('pd', JSON.stringify([...state.products, action.payload]))
+                // ls: localStorage.setItem('pd', JSON.stringify([...state.products, action.payload]))
+                ls: sessionStorage.setItem('pd', JSON.stringify([...state.products, action.payload]))
             }
         case 'DeleteProduct':
             console.log('DeleteProduct function called')
             return {
                 ...state,
                 products: state.products.filter(v => v.id !== action.payload),
-                ls: localStorage.setItem('pd', JSON.stringify([...state.products.filter(v => v.id !== action.payload)]))
+                // ls: localStorage.setItem('pd', JSON.stringify([...state.products.filter(v => v.id !== action.payload)]))
+                ls: sessionStorage.setItem('pd', JSON.stringify([...state.products.filter(v => v.id !== action.payload)]))
             }
         case 'UpdateProduct':
             console.log('UpdateProduct function called')
@@ -37,7 +39,8 @@ const globalReducer = (state, action) => {
                 ...state,
                 products: productUpdated,
                 update: false,
-                ls: localStorage.setItem('pd', JSON.stringify([...productUpdated]))
+                // ls: localStorage.setItem('pd', JSON.stringify([...productUpdated]))
+                ls: sessionStorage.setItem('pd', JSON.stringify([...productUpdated]))
             }
         default: return { ...state }
     }

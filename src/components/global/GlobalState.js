@@ -11,7 +11,8 @@ const GlobalState = props => {
     }
 
     useEffect(() => {
-        const storedProducts = localStorage.getItem('pd');
+        // const storedProducts = localStorage.getItem('pd');
+        const storedProducts = sessionStorage.getItem('pd');
         if (storedProducts) {
             console.log('storedProducts', storedProducts)
             console.log('storedProducts', JSON.parse(storedProducts))
