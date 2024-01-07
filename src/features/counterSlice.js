@@ -7,7 +7,8 @@ const counterSlice = createSlice({
     reducers: {
         increment: (state, action) => {
             // state.value.find(v => v.id === action.payload).quantity += 1
-            (state.products.length > 0 || !(state.products.filter(v => v._id === action.payload._id).length === 0)) ? state.products.find(v => v._id === action.payload._id).quantity += 1 : state.products.push(action.payload)
+            // (state.products.length > 0 && state.products.filter(v => v._id === action.payload._id).length === 0) ? state.products.find(v => v._id === action.payload._id).quantity += 1 : state.products.push(action.payload)
+            (state.products.length > 0 && !(state.products.filter(v => v._id === action.payload._id).length === 0)) ? state.products.find(v => v._id === action.payload._id).quantity += 1 : state.products.push(action.payload)
             // state.products.push(action.payload)
             // state.products.find(v => v.id === action.payload) ? state.products.find(v => v.id === action.payload).quantity += 1 : state.products.push(action.payload)
         },
