@@ -7,7 +7,6 @@ import { increment, decrement } from '../features/counterSlice';
 
 const ProductDetail = () => {
     const router = useRouter();
-    // const { products, addProduct } = useContext(Cntx)
 
     const { product } = router.query;
 
@@ -28,7 +27,6 @@ const ProductDetail = () => {
                     <p>{parsedProduct.productName}</p>
                     <p>{'$' + parsedProduct.productPrice}</p>
                     <p>{parsedProduct.productCategory}</p>
-                    {/* <button onClick={() => addProduct(parsedProduct)} className='bg-blue-500 text-white p-1 px-3 hover:scale-105 transition-transform'>Add to Cart</button> */}
                     <button onClick={() => dispatch(increment(parsedProduct))} className='bg-blue-500 text-white p-1 px-3 hover:scale-105 transition-transform'>Add to Cart</button>
                     {console.log('counter|', counter)}
                 </>

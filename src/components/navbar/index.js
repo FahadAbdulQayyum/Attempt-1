@@ -2,13 +2,16 @@ import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState, useContext } from 'react';
-import Cntxt from '../global/globalContext';
+// import Cntxt from '../global/globalContext';
 
 import { Accordion, AccordionItem } from "@nextui-org/react";
+
+import { useDispatch, useSelector } from 'react-redux';
 
 const Index = () => {
     const router = useRouter();
 
+    const { products } = useSelector((state) => state.counter);
     // const { products } = useContext(Cntxt)
 
     const [authenticated, setAuthenticated] = useState(false);
@@ -111,7 +114,7 @@ const Index = () => {
                 </div>
             </div>
 
-            {/* {products.length > 0 && <>
+            {products.length > 0 && <>
                 <div
                     // className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
                     className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white pt-3 rounded-xl'
@@ -119,19 +122,20 @@ const Index = () => {
                     <>
                         <Accordion>
                             <AccordionItem key="1" aria-label="Accordion 1" subtitle="" title="">
-                                {products.map(v => <><p>{v.productName}<>{' - ' + v.productPrice}</></p></>)}
+                                {products.map(v => <><p>{v.productName}<>{' - ' + v.quantity}{' - ' + v.productPrice}</></p></>)}
                             </AccordionItem>
 
                         </Accordion>
                         <p className='px-3 py-2'>
-                            {products.length}
+                            {/* {products.length} */}
+                            {products.reduce((a, b) => b.quantity + a, 0)}
                             {console.log('|||products|||', products)}
                         </p>
                     </>
                     <button className='bg-blue-600 px-5 py-2 rounded-b-xl'><Link href={'/checkout'}>Go to Checkout</Link></button>
                 </div>
             </>
-            } */}
+            }
         </div >
     );
 };
