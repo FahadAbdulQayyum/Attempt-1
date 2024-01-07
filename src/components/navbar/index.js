@@ -7,9 +7,11 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Accordion, AccordionItem } from "@nextui-org/react";
 
 import { useDispatch, useSelector } from 'react-redux';
+import { onLoad } from '@/features/counterSlice';
 
 const Index = () => {
     const router = useRouter();
+    const dispatch = useDispatch();
 
     const { products } = useSelector((state) => state.counter);
     // const { products } = useContext(Cntxt)
@@ -38,6 +40,7 @@ const Index = () => {
             setIsEmail(email)
         }
         verify()
+        dispatch(onLoad())
     }, []);
 
     useEffect(() => {
