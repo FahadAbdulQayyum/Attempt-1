@@ -1,6 +1,9 @@
 import '@/styles/globals.css'
 import Navbar from '../components/navbar'
-import GlobalState from '@/components/global/GlobalState'
+// import GlobalState from '@/components/global/GlobalState'
+
+import { Provider } from 'react-redux';
+import store from '../features/store';
 
 export default function App({ Component, pageProps }) {
 
@@ -8,9 +11,13 @@ export default function App({ Component, pageProps }) {
 
   // return <Component {...pageProps} />
   return <>
-    <GlobalState>
+    {/* <GlobalState> */}
+
+    <Provider store={store}>
       <Navbar />
       <Component {...pageProps} />
-    </GlobalState>
+    </Provider>
+
+    {/* </GlobalState > */}
   </>
 }

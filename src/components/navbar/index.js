@@ -9,7 +9,7 @@ import { Accordion, AccordionItem } from "@nextui-org/react";
 const Index = () => {
     const router = useRouter();
 
-    const { products } = useContext(Cntxt)
+    // const { products } = useContext(Cntxt)
 
     const [authenticated, setAuthenticated] = useState(false);
     const [isAdmin, setIsAdmin] = useState(false);
@@ -111,7 +111,7 @@ const Index = () => {
                 </div>
             </div>
 
-            {products.length > 0 && <>
+            {/* {products.length > 0 && <>
                 <div
                     // className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
                     className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white pt-3 rounded-xl'
@@ -131,7 +131,7 @@ const Index = () => {
                     <button className='bg-blue-600 px-5 py-2 rounded-b-xl'><Link href={'/checkout'}>Go to Checkout</Link></button>
                 </div>
             </>
-            }
+            } */}
         </div >
     );
 };
