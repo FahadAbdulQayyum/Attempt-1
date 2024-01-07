@@ -80,7 +80,7 @@ const Index = () => {
     };
 
     return (
-        <div className='bg-orange-400 text-white shadow-lg'>
+        <div className='bg-orange-400 text-white shadow-lg fixed w-full z-50'>
             <div className='mx-10 py-5'>
                 <div className='flex justify-between'>
                     <div>Logo</div>

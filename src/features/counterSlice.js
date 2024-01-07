@@ -5,17 +5,10 @@ const counterSlice = createSlice({
     // initialState: { products: JSON.parse(sessionStorage.getItem('pd')) !== null ? JSON.parse(sessionStorage.getItem('pd')) : [] },
     initialState: { products: [] },
     reducers: {
-        // onLoad: (state) => {
-        //     console.log("JSON.parse(sessionStorage.getItem('pd'))", JSON.parse(sessionStorage.getItem('pd')))
-        //     JSON.parse(sessionStorage.getItem('pd')) !== null ? state.products.push(...JSON.parse(sessionStorage.getItem('pd'))) : []
-        //     // state.products.push(...state.products.filter((p, index) => state.products.indexOf(item => item._id === p._id) === index))
-        //     // console.log('===|||===', state.products)
-        // },
         onLoad: (state, action) => {
             const loadedProducts = JSON.parse(sessionStorage.getItem('pd')) || [];
             return {
                 ...state,
-                // products: [...state.products, ...loadedProducts],
                 products: loadedProducts,
             };
         },
