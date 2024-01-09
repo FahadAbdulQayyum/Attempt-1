@@ -2,7 +2,7 @@ import Cors from 'cors';
 
 // Initializing the cors middleware
 const corsMiddleware = Cors({
-    origin: 'https://your-vercel-app.vercel.app',
+    origin: 'https://saylani-hackathon-practice.vercel.app',
     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
     credentials: true,
 });
