@@ -15,4 +15,9 @@ module.exports = {
     },
   },
   plugins: [],
+  variants: {
+    extend: {
+      justifyContent: ['responsive', 'hover', 'focus', 'group-hover'],
+    },
+  },
 }

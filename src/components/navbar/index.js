@@ -4,13 +4,24 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useState, useContext } from 'react';
 // import Cntxt from '../global/globalContext';
 
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faBars } from '@fortawesome/react-fontawesome'
+// import { faFaceRelieved } from '@fortawesome/pro-solid-svg-icons'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 import { Accordion, AccordionItem } from "@nextui-org/react";
 
 import { useDispatch, useSelector } from 'react-redux';
 import { onLoad } from '@/features/counterSlice';
 
 const Index = () => {
+
+    const [showMenu, setShowMenu] = useState(false)
+
     const router = useRouter();
+
     const dispatch = useDispatch();
 
     const { products } = useSelector((state) => state.counter);
@@ -82,10 +93,17 @@ const Index = () => {
     return (
         <div className='bg-orange-400 text-white shadow-lg fixed w-full z-50'>
             <div className='mx-10 py-5'>
-                <div className='flex justify-between'>
+                <div className='flex justify-center items-center md:justify-between flex-col md:flex-row'>
                     <div>Logo</div>
-                    <div>
-                        <ul className='flex space-x-5 cursor-pointer'>
+                    {/* {showMenu && <div className='hidden md:flex'> */}
+                    {/* {showMenu && <div */}
+                    <div
+                        className='flex justify-center'
+                    >
+                        <ul
+                            // className='md:flex space-x-5 cursor-pointer absolute md:relative bg-red-300 bg-opacity-70 md:bg-transparent w-full top-20'
+                            className={`${!showMenu ? 'hidden' : 'flex-row'} md:flex space-x-5 text-center cursor-pointer fixed md:relative bg-red-300 bg-opacity-70 md:bg-transparent w-full top-20 md:top-0 bottom-0 md:right-0`}
+                        >
                             <Link href='/'>
                                 <li className={`hover:scale-105 transition-transform px-4 rounded ${router.pathname === '/' ? 'bg-slate-500 text-white' : 'bg-slate-200 text-black'}`}>Home</li>
                             </Link>
@@ -101,43 +119,52 @@ const Index = () => {
                             {(isAdmin || admin) && <Link href='/createproduct'>
                                 <li className='hover:scale-105 transition-transform bg-slate-200 px-4 text-black rounded'>Create Product</li>
                             </Link>}
-                            <li
-                                onClick={logout}
-                                className={`hover:scale-105 transition-transform bg-slate-200 px-4 text-black rounded ${authenticated ? 'hover:bg-red-500' : ''
-                                    }`}
-                            >
-                                {authenticated ? 'Logout' : 'Login'}
-                            </li>
+                            <Link href={'/auth/login'}>
+                                <li
+                                    onClick={logout}
+                                    className={`hover:scale-105 transition-transform bg-slate-200 px-4 text-black rounded ${authenticated ? 'hover:bg-red-500' : ''
+                                        }`}
+                                >
+                                    {authenticated ? 'Logout' : 'Login'}
+                                </li>
+                            </Link>
                         </ul>
                     </div>
-                    {/* <div>{email}</div> */}
+                    {/* </div>} */}
                     <div>{console.log('isEmail', isEmail)}</div>
                     {/* <div>{isEmail ? 'Welcome, ' + isEmail : 'null'}</div> */}
                     <div>{isEmail ? 'Welcome, ' + isEmail : ''}</div>
                 </div>
+                <div className='absolute right-10 top-7 flex md:hidden' onClick={() => setShowMenu(!showMenu)}>
+                    {/* <FontAwesomeIcon icon={faFaceRelieved} /> */}
+                    {/* <i class="fa-solid fa-user"></i> */}
+                    {/* <FontAwesomeIcon icon="fa-solid fa-bars" /> */}
+                    <FontAwesomeIcon icon={faBars} />
+                </div>
             </div>
 
-            {products.length > 0 && <>
-                <div
-                    // className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
-                    className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white pt-3 rounded-xl'
-                >
-                    <>
-                        <Accordion>
-                            <AccordionItem key="1" aria-label="Accordion 1" subtitle="" title="">
-                                {products.map(v => <><p>{v.productName}<>{' - ' + v.quantity}{' - ' + v.productPrice}</></p></>)}
-                            </AccordionItem>
+            {
+                products.length > 0 && <>
+                    <div
+                        // className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white px-5 py-3'
+                        className='z-50 fixed bottom-1 right-1 bg-stone-700 text-white pt-3 rounded-xl'
+                    >
+                        <>
+                            <Accordion>
+                                <AccordionItem key="1" aria-label="Accordion 1" subtitle="" title="">
+                                    {products.map(v => <><p>{v.productName}<>{' - ' + v.quantity}{' - ' + v.productPrice}</></p></>)}
+                                </AccordionItem>
 
-                        </Accordion>
-                        <p className='px-3 py-2'>
-                            {/* {products.length} */}
-                            {products.reduce((a, b) => b.quantity + a, 0)}
-                            {console.log('|||products|||', products)}
-                        </p>
-                    </>
-                    <button className='bg-blue-600 px-5 py-2 rounded-b-xl'><Link href={'/checkout'}>Go to Checkout</Link></button>
-                </div>
-            </>
+                            </Accordion>
+                            <p className='px-3 py-2'>
+                                {/* {products.length} */}
+                                {products.reduce((a, b) => b.quantity + a, 0)}
+                                {console.log('|||products|||', products)}
+                            </p>
+                        </>
+                        <button className='bg-blue-600 px-5 py-2 rounded-b-xl'><Link href={'/checkout'}>Go to Checkout</Link></button>
+                    </div>
+                </>
             }
         </div >
     );
