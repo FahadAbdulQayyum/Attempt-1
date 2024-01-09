@@ -32,7 +32,7 @@ const Index = ({ category, }) => {
     return (
         <div>
             <div
-                className='flex flex-row'
+                className='flex flex-col md:flex-row justify-center items-center'
             >
                 {products.map((v, index) => (
                     // <div key={index} className='w-80 mx-5 object-none' onClick={() => handleClick(v._id)}>

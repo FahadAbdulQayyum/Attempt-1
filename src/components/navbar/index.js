@@ -9,7 +9,7 @@ import React, { useEffect, useState, useContext } from 'react';
 // import { faFaceRelieved } from '@fortawesome/pro-solid-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 
 import { Accordion, AccordionItem } from "@nextui-org/react";
 
@@ -135,11 +135,12 @@ const Index = () => {
                     {/* <div>{isEmail ? 'Welcome, ' + isEmail : 'null'}</div> */}
                     <div>{isEmail ? 'Welcome, ' + isEmail : ''}</div>
                 </div>
-                <div className='absolute right-10 top-7 flex md:hidden' onClick={() => setShowMenu(!showMenu)}>
-                    {/* <FontAwesomeIcon icon={faFaceRelieved} /> */}
-                    {/* <i class="fa-solid fa-user"></i> */}
-                    {/* <FontAwesomeIcon icon="fa-solid fa-bars" /> */}
-                    <FontAwesomeIcon icon={faBars} />
+                <div
+                    // className='absolute right-10 top-7 flex md:hidden'
+                    className={`absolute right-10 top-7 flex md:hidden transition-transform duration-1000 transform ${showMenu ? 'translate-x-1' : ' translate-x-4'}`}
+                    onClick={() => setShowMenu(!showMenu)}
+                >
+                    {!showMenu ? <FontAwesomeIcon icon={faBars} /> : <FontAwesomeIcon icon={faXmark} />}
                 </div>
             </div>
 

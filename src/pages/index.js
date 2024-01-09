@@ -42,10 +42,13 @@ export default function Index() {
   return (
     <div>
       <div
-        className='flex justify-center py-5'
+        // className='flex justify-center py-5'
+        // className='flex justify-center py-10'
+        // className='flex justify-center py-20 md:py-16'
+        className='flex justify-center pt-20 md:pt-16'
       >
         <div
-          className='w-[70%]'
+          className='w-[99%] md:w-[70%]'
         >
           <Carousel />
         </div>
