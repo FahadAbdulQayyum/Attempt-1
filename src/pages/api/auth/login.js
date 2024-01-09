@@ -1,3 +1,26 @@
+import Cors from 'cors';
+
+// Initializing the cors middleware
+const corsMiddleware = Cors({
+    origin: 'https://your-vercel-app.vercel.app',
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+    credentials: true,
+});
+
+// Helper method to wait for a middleware to execute before continuing
+function runMiddleware(req, res, fn) {
+    return new Promise((resolve, reject) => {
+        fn(req, res, (result) => {
+            if (result instanceof Error) {
+                return reject(result);
+            }
+
+            return resolve(result);
+        });
+    });
+}
+
+
 import User from "@/components/model/user";
 import connectDB from "../../../../config/db";
 import bcryptjs from "bcryptjs";
@@ -8,6 +31,8 @@ import jwt from "jsonwebtoken";
 // export default async function handler(req, res) {
 const Login = async (req, res) => {
     // TokenAuth(req, res)
+
+    await runMiddleware(req, res, corsMiddleware);
 
     console.log(req, 'res')
 
