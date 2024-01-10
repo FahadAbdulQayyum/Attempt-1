@@ -1,24 +1,24 @@
-import Cors from 'cors';
+// import Cors from 'cors';
 
-// Initializing the cors middleware
-const corsMiddleware = Cors({
-    origin: 'https://saylani-hackathon-practice.vercel.app',
-    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
-    credentials: true,
-});
+// // Initializing the cors middleware
+// const corsMiddleware = Cors({
+//     origin: 'https://saylani-hackathon-practice.vercel.app',
+//     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+//     credentials: true,
+// });
 
-// Helper method to wait for a middleware to execute before continuing
-function runMiddleware(req, res, fn) {
-    return new Promise((resolve, reject) => {
-        fn(req, res, (result) => {
-            if (result instanceof Error) {
-                return reject(result);
-            }
+// // Helper method to wait for a middleware to execute before continuing
+// function runMiddleware(req, res, fn) {
+//     return new Promise((resolve, reject) => {
+//         fn(req, res, (result) => {
+//             if (result instanceof Error) {
+//                 return reject(result);
+//             }
 
-            return resolve(result);
-        });
-    });
-}
+//             return resolve(result);
+//         });
+//     });
+// }
 
 
 import User from "@/components/model/user";
@@ -32,7 +32,7 @@ import jwt from "jsonwebtoken";
 const Login = async (req, res) => {
     // TokenAuth(req, res)
 
-    await runMiddleware(req, res, corsMiddleware);
+    // await runMiddleware(req, res, corsMiddleware);
 
     console.log(req, 'res')
 
